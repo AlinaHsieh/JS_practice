@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        <div>
+            <label for="">數字1：</label>
+            <input type="text" name="num1" id="num1">
+        </div>
+        <div>
+            <select name="calc" id="calc">四則運算
+                <option value="+">加 +</option>
+                <option value="-">減 -</option>
+                <option value="*">乘 *</option>
+                <option value="/">除 /</option>
+            </select>
+        </div>
+        <div>
+            <label for="">數字2：</label>
+            <input type="text" name="num2" id="num2">
+        </div>
+        <button type="button" name="button" id="button" onclick="myBtnFun()">計算</button>&nbsp;
+        <button type="button" name="reset" id="reset" onclick="resetFun()">重設</button>
+        <p id="tip">輸入數字進行計算</p>
+        <p id="result">結果為...</p>
+    </form>
+
+    <script>
+        let num1 = document.getElementById('num1');
+        let num2 = document.getElementById('num2');
+        let button = document.getElementById('button');
+        let result = document.getElementById('result');
+        let calc = document.getElementById('calc');
+
+        let tip = document.getElementById('tip');
+
+        function initFun() {
+            tip.style.display = 'none';
+            result.style.display = 'none';
+        }
+
+        function myBtnFun() {
+            let num1Value = num1.value;
+            let num2Value = num2.value;
+            let calcValue = calc.value;
+            console.log('hello mybutton');
+            console.log('num1Value', num1Value);
+            console.log('num2Value', num2Value);
+
+            let resultValue = 0;
+            switch (calcValue) {
+
+                case '+':
+                    resultValue = Number(num1Value) + Number(num2Value);
+                    break;
+                case '-':
+                    resultValue = Number(num1Value) - Number(num2Value);
+                    break;
+                case '*':
+                    resultValue = Number(num1Value) * Number(num2Value);
+                    break;
+                case '/':
+                    resultValue = Number(num1Value) / Number(num2Value);
+                    break;
+
+                default:
+                    break;
+            }
+            console.log(resultValue);
+
+            result.innerText = `運算結果為：${resultValue}`;
+            initFun();
+            result.style.display = 'block';
+        }
+        
+        function resetFun(){
+            num1.value ='';
+            num2.value ='';
+            initFun();
+            tip.style.display='block';
+        }
+        
+
+
+    </script>
+</body>
+
+</html>
