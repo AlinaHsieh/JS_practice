@@ -9,13 +9,16 @@
 </head>
 
 <body>
-    <form action="">
+    <!-- 建立form表單 -->
+    <form action="" method="">
         <div>
             <label for="">數字1：</label>
+            <!-- 每個input都要加id,用來讓js綁定 -->
             <input type="text" name="num1" id="num1">
         </div>
         <div>
             <select name="calc" id="calc">四則運算
+                <!-- 四則運算下拉式選單 -->
                 <option value="+">加 +</option>
                 <option value="-">減 -</option>
                 <option value="*">乘 *</option>
@@ -33,28 +36,34 @@
     </form>
 
     <script>
+        //綁定id
         let num1 = document.getElementById('num1');
         let num2 = document.getElementById('num2');
         let button = document.getElementById('button');
         let result = document.getElementById('result');
         let calc = document.getElementById('calc');
-
         let tip = document.getElementById('tip');
-
+        //設定提示為不顯示
         function initFun() {
             tip.style.display = 'none';
             result.style.display = 'none';
         }
-
+        //計算加總的功能設定>用function函數，作用在按鈕onclick的時候
         function myBtnFun() {
+            //變數num1Value的賦值
             let num1Value = num1.value;
+            //變數num2Value的賦值
             let num2Value = num2.value;
+            //變數calcValue的賦值
             let calcValue = calc.value;
+            //把log顯示在console
             console.log('hello mybutton');
             console.log('num1Value', num1Value);
             console.log('num2Value', num2Value);
 
+            //由於下方resultValue重複，因此寫在外面，重設resultValue的值為0
             let resultValue = 0;
+            //用switch Case做四則運算
             switch (calcValue) {
 
                 case '+':
@@ -73,13 +82,16 @@
                 default:
                     break;
             }
+            //把log顯示在console
             console.log(resultValue);
-
+            //把結果印出，innerText可以重新改寫result變數
             result.innerText = `運算結果為：${resultValue}`;
+            //清空註解
             initFun();
+            //顯示結果就好，不顯示註解
             result.style.display = 'block';
         }
-        
+        //設定清空值
         function resetFun(){
             num1.value ='';
             num2.value ='';
