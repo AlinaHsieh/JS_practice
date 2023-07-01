@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>
+        <label for=""></label>
+        姓名: <input type="text" id="namee">
+    </p>
+    <p>
+        <label for=""></label>
+        國文: <input type="text" id="chinese">
+    </p>
+    <p>
+        <label for=""></label>
+        英文: <input type="text" id="english">
+    </p>
+    <p>
+        <label for=""></label>
+        數學: <input type="text" id="math">
+    </p>
+    <button type="button" id="myBtn">計算總成績</button>
+    <p id="result">學生成績為：</p>
+    <script>
+        let namee = document.getElementById('namee')
+        let chinese = document.getElementById('chinese')
+        let english = document.getElementById('english')
+        let math = document.getElementById('math')
+        let myBtn = document.getElementById('myBtn')
+
+        let data = {
+            namee: '李東雞',
+            chinese: '80',
+            english: '70',
+            math: '60',
+            sum: function () {
+                let nameeValue = namee.value;
+                let chineseValue = chinese.value;
+                let englishValue = english.value;
+                let mathValue = math.value;
+
+                this.chinese = chineseValue;
+                this.english = englishValue;
+                this.math = mathValue;
+
+                let sum = Number(chineseValue) + Number(englishValue) + Number(mathValue)
+                return sum
+            }
+        }
+
+        myBtn.addEventListener('click', function () {
+            namee.value = data.namee;
+            chinese.value = data.chinese;
+            english.value = data.english;
+            math.value = data.math
+            let total = data.sum()
+            result.innerText = `
+                姓名 : ${data.namee}
+                國文 : ${data.chinese}
+                英文 : ${data.english}
+                數學 : ${data.math}
+                總分 : ${total}
+
+                `
+
+
+        })
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  
+
+    <script>
+        // 模板字串template strings
+        let x = 10;
+        let y = 20;
+        let str = x + "+" + y + "=" + (x+y);
+        let str2 = `${x}+${y}=${x+y}`
+        console.log("str",str);
+        console.log("str2",str2);
+
+        let name = "Amy";
+        let msg = `親愛的 ${name}您好，歡迎登入！`;
+        console.log(msg);
+
+        //random() 只取小數點
+        let show = "取1-100隨機: ";
+        let max = 100;
+        let min = 0;
+        let r = Math.random();
+        let string = document.getElementById("str")
+        console.log(string);
+
+        
+        function getRandom(max,min){
+            let result = (Math.random() * (max-min) + min);
+            return Math.floor(result);
+        }
+        console.log(show + getRandom(100,10));
+        
+
+    </script>
+</body>
+</html>
