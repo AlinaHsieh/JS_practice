@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .chkOutPage {
+            background-color: lightgray;
+            width: 800px;
+            height: 600px;
+            margin: auto;
+        }
+
+        .list {
+            display: flex;
+            padding: 30px;
+
+        }
+
+        .product {
+            flex-basis: 30%;
+        }
+
+        .dollar {
+            flex-basis: 30%;
+
+        }
+
+        .quantity {
+            flex-basis: 30%;
+
+        }
+
+        h2 {
+            text-align: center;
+
+        }
+
+        .popup {
+            display: none;
+            width: 40%;
+            height: 400px;
+            background-color: lightcoral;
+            position: absolute;
+            top: 100px;
+            left: 30%;
+
+            animation: fade 1s;
+        }
+        @keyframes fade{
+            from{
+                opacity: 0;
+                top:0px
+            }
+            to{
+                opacity: 1;
+                top:100px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="chkOutPage">
+        <h2>購物車</h2>
+        <div class="list">
+            <div class="product">商品</div>
+            <div class="dollar">金額</div>
+            <div class="quantity">數量</div>
+        </div>
+        <hr>
+        <div class="list">
+            <div class="product">商品1</div>
+            <div class="dollar">
+                <input type="number" id="pd1Money">
+            </div>
+            <div class="quantity">
+                <input type="number" id="pd1Q">
+            </div>
+        </div>
+        <hr>
+
+        <div class="list">
+            <div class="product">商品2</div>
+            <div class="dollar">
+                <input type="number" id="pd2Money">
+            </div>
+            <div class="quantity">
+                <input type="number" id="pd2Q">
+            </div>
+        </div>
+        <hr>
+
+        <div class="list">
+            <div class="product">商品3</div>
+            <div class="dollar">
+                <input type="number" id="pd3Money">
+            </div>
+            <div class="quantity">
+                <input type="number" id="pd3Q">
+            </div>
+        </div>
+        <hr>
+        <button id="calc" onclick="sum()">計算總金額</button>
+        <p id="result"> 總金額為：</p>
+        <button id="confirm" onclick="send()">確認訂單</button>
+    </div>
+    <div class="popup" id="popup">
+        <button type="button" onclick="closeFun()">X</button>
+            <div>您的訂單已確認</div>
+    </div>
+
+    <script>
+        let pd1Money = document.getElementById("pd1Money");
+        let pd2Money = document.getElementById("pd2Money");
+        let pd3Money = document.getElementById("pd3Money");
+        let pd1Q = document.getElementById("pd1Q");
+        let pd2Q = document.getElementById("pd2Q");
+        let pd3Q = document.getElementById("pd3Q");
+        let calc = document.getElementById("calc");
+        let result = document.getElementById("result");
+        let popup = document.getElementById("popup");
+
+
+        function sum() {
+            let pd1MoneyValue = pd1Money.value;
+            let pd2MoneyValue = pd2Money.value;
+            let pd3MoneyValue = pd3Money.value;
+            let pd1QValue = pd1Q.value;
+            let pd2QValue = pd2Q.value;
+            let pd3QValue = pd3Q.value;
+            let sum1 =
+                Number(pd1MoneyValue) * Number(pd1QValue) +
+                Number(pd2MoneyValue) * Number(pd2QValue) +
+                Number(pd3MoneyValue) * Number(pd3QValue);
+            if (sum1 > 800) {
+
+                sum1 = Number(sum1) * 0.8;
+                result.innerHTML = "總金額為：" + sum1 + "<div style='color:red'>8折優惠</div>";
+            } else {
+                result.innerText = `總金額為： ${sum1}`;
+            }
+        }
+
+        function send() {
+            popup.style.display = "block";
+        }
+
+        function closeFun(){
+            popup.style.display = "none";
+        }
+
+    </script>
+</body>
+
+</html>

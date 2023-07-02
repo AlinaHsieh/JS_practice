@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 400px;
+            height: 300px;
+
+        }
+        .box2{
+            width:300px;
+            height:300px;
+
+        }
+        .purple {
+            background-color: purple;
+
+        }
+
+        .green {
+
+            background-color: seagreen;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box purple" data-color="purple"></div>
+    <button id="myBtn">CHANGE</button>
+
+    <script>
+        const box = document.querySelector('.box');
+        const myBtn = document.getElementById('myBtn');
+        myBtn.addEventListener('click', function () {
+            let datacolor = box.getAttribute('data-color');
+            console.log('data-color', datacolor);
+            switch (datacolor) {
+                case "purple":
+                    box.setAttribute('class','box2 green');
+                    box.setAttribute('data-color','green');
+                break;
+
+                case "green":
+                    box.setAttribute('class','box purple');
+                    box.setAttribute('data-color','purple');
+                break;
+
+            }
+
+        })
+    </script>
+</body>
+
+</html>

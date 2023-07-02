@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .popup {
+            display: none;
+            width: 80%;
+            height: 400px;
+            margin: auto;
+            background-color: lightseagreen;
+
+            animation:fade 1s;
+        }
+        #x{
+            position: relative;
+            top:10px;
+            left:95%;
+        }
+        @keyframes fade{
+            from{
+                opacity:0;
+                top:80px;
+            }
+            to{
+                opacity:1;
+                top:100px
+            }
+        }
+        #info{
+            text-align: center;
+            padding-top:20px;
+            color: #fff;
+            font-size: 36px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p>送出訂單</p>
+        <button type="button" id="confirm" onclick="submit()">確定送出</button>
+    </div>
+
+    <div class="popup" id="popup">
+        <button type="button" id="x" onclick="closeBtn()">X</button>
+        <p id="info">您的訂單已確認</p>
+    </div>
+
+
+    <script>
+        let popup = document.getElementById("popup");
+        let confirm = document.getElementById('confirm');
+        let x = document.getElementById('x');
+
+        function submit(){
+            popup.style.display = 'block';
+        }
+
+        function closeBtn(){
+            popup.style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>
