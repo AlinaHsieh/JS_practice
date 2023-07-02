@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+            background-color: gold;
+            margin: 20px;
+        }
+        .container{
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>按下方塊與滑鼠移至方塊都會換顏色</h2>
+    <div class="container">
+        <div class="box box1"></div>
+        <div class="box box2"></div>
+        <div class="box box3"></div>
+
+    </div>
+
+    <script>
+        const box = document.querySelectorAll('.box');
+        box.forEach(function(value,key){
+            console.log('value',value);
+            console.log('key',key);
+
+            value.addEventListener('click',function(){
+                value.style.backgroundColor = 'gray';
+
+            })
+
+            value.addEventListener('mouseover',function(){
+                value.style.backgroundColor = 'purple';
+            })
+
+            value.addEventListener('mouseout',function(){
+                value.style.backgroundColor = 'darkgreen';
+            })
+
+        });
+    </script>
+</body>
+
+</html>
