@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="myBtn" >按下後3秒改變文字</button>
+    <p id="text">原本的文字</p>
+
+    <script>
+        // settimeout 過一段時間做...動作
+        let myBtn = document.getElementById('myBtn');
+        let text = document.getElementById('text');
+        console.log('text',text);
+
+        myBtn.addEventListener('click',function(){
+            setTimeout(() => {
+                text.innerText = "改變後的文字";
+            }, 3000);
+
+        })
+    </script>
+</body>
+</html>

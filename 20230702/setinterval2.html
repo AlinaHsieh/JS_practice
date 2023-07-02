@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="startBtn">Start</button>
+    <button id="stopBtn">Stop</button>
+    <p id="text">按下後開始計時</p>
+
+    <script>
+        let startBtn = document.getElementById('startBtn');
+        let stopBtn = document.getElementById('stopBtn');
+        let text = document.getElementById('text');
+        let myInterval;
+        let startFlag = false; //起始值false表示還沒開始計時
+        let time = 0;
+
+
+        startBtn.addEventListener('click',function (){
+            start();
+        })
+        function start(){
+            if(startFlag == true){ //按第二下startBtn時，startFlag已經是true，
+                return false; //不執行任何操作，直接返回(這樣可以避免重複啟動計時器)
+            }
+            myInterval = setInterval(() => {
+                time = time + 1;
+                text.innerText = time;
+            }, 1000);
+            startFlag = true; //true表示計時器啟動
+
+        }
+
+        stopBtn.addEventListener('click',function(){
+            clearInterval(myInterval);
+            startFlag = false;
+
+        })
+        
+    </script>
+</body>
+</html>

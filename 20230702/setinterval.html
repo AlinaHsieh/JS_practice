@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="myBtn">倒數10秒</button>
+    <p id="text">按下後開始倒數</p>
+
+    <script>
+      let myBtn = document.getElementById('myBtn');
+      let text = document.getElementById('text');
+
+      myBtn.addEventListener('click',function(){
+        let time = 10;
+        let myInterVal = setInterval(() => {
+            time = time - 1;
+            text.innerText = time;
+            if(time <=0){
+                clearInterval(myInterVal);
+            }
+        }, 1000);
+
+      })
+    </script>
+</body>
+
+</html>
