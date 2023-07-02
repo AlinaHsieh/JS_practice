@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+        }
+
+        .darkred {
+            background-color: darkred;
+
+        }
+
+        .purple {
+            background-color: purple;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box darkred" data-color="darkred"></div>
+
+    <script>
+        const box = document.querySelector('.box');
+        box.addEventListener('mouseover', function () {
+            // switch (changeColor) {
+            //     case 'darkred':
+            //         box.setAttribute('data-color','purple');
+            //         box.setAttribute('class','box purple');
+            //     break;
+
+            //     case 'purple':
+            //         box.setAttribute('data-color','darkred');
+            //         box.setAttribute('class','box darkred');
+            //     break;
+            // }
+            box.setAttribute('class', 'box purple');
+        })
+        box.addEventListener('mouseout',function(){
+            box.setAttribute('class','box darkred');
+        })
+    </script>
+</body>
+
+</html>
